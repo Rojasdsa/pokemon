@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ListaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('lista');
 });
+
+// Mostrar
+Route::get('/', [ListaController::class,'showPokemons'])->name('lista.show');
+
+// Eliminar
+Route::post('/delete/{id}',[ListaController::class,'deletePokemon'])->name('lista.delete');
+
+// Editar
+Route::get('/editar/{id}',[ListaController::class,'editPokemon'])->name('lista.edit');
+Route::post('/editar/{id}',[ListaController::class,'updatePokemon'])->name('lista.update');
