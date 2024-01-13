@@ -45,14 +45,14 @@
                 </select>
             </div>
     
-            {{-- <div class="form-group">
+            <div class="form-group">
                 <label for="region">Región:</label>
                 <select class="form-control" id="region" name="region" required>
-                    @foreach($regiones as $region)
+                    @foreach($regions as $region)
                         <option value="{{ $region }}" {{ $pokemon->region === $region ? 'selected' : '' }}>{{ ucfirst($region) }}</option>
                     @endforeach
                 </select>
-            </div> --}}
+            </div>
     
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>

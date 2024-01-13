@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Pokemons;
 
 class ListaController extends Controller
@@ -14,14 +15,14 @@ class ListaController extends Controller
 
         // Obtén el parámetro de orden desde la URL
         $order = $request->get('order');
+        $orderField = $request->get('orderField');
+
 
         if (empty($order)) {
             $pokemons =  Pokemons::all();
         } else {
-            $pokemons = Pokemons::orderBy('name', $order)->get();
+            $pokemons = Pokemons::orderBy($orderField, $order)->get();
         }
-
-        // $pokemons = $order ?  Pokemons::all() : Pokemons::orderBy('name', $order)->get();
 
         return view('lista', @compact('order', 'pokemons'));
     }
@@ -43,17 +44,19 @@ class ListaController extends Controller
     {
         $pokemon = Pokemons::findOrFail($id);
 
-        $types = Pokemons::select('type')
-            ->groupBy('type')
-            ->get()
-            ->pluck('type');
+        $types = Pokemons::select('type')->get()->pluck('type');
 
         $subtypes = Pokemons::select('subtype')
             ->groupBy('subtype')
             ->get()
             ->pluck('subtype');
 
-        return view('editar', @compact('pokemon', 'types', 'subtypes'));
+        $regions = Pokemons::select('region')
+            ->groupBy('region')
+            ->get()
+            ->pluck('region');
+
+        return view('editar', @compact('pokemon', 'types', 'subtypes', 'regions'));
     }
 
     public function updatePokemon($id, Request $request)

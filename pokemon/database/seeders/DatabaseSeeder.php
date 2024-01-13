@@ -16,35 +16,35 @@ class DatabaseSeeder extends Seeder
         $pokemons = [
             [
                 'name' => 'Charmander',
-                'type' => 'rock',
+                'type' => 'Rock',
                 'subtype' => 'fighting',
                 'region' => 'Kanto',
 
             ],
             [
                 'name' => 'Squirtle',
-                'type' => 'water',
+                'type' => 'Water',
                 'subtype' => 'psychic',
                 'region' => 'Kanto',
 
             ],
             [
                 'name' => 'Bulbasaur',
-                'type' => 'grass',
+                'type' => 'Grass',
                 'subtype' => 'poison',
                 'region' => 'Kanto',
 
             ],
             [
                 'name' => 'Totodile',
-                'type' => 'water',
+                'type' => 'Water',
                 'subtype' => 'poison',
                 'region' => 'Kanto',
 
             ],
             [
                 'name' => 'moltres',
-                'type' => 'fire',
+                'type' => 'Fire',
                 'subtype' => 'poison',
                 'region' => 'Kanto',
 

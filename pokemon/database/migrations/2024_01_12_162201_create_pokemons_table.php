@@ -17,10 +17,9 @@ return new class extends Migration
             //AÑADIR TODOS LOS TIPOS, SUBTIPOS Y  REGIONES
             $table->enum('type', [
                 'Normal',
-                'Fire',
+                'Grass',
                 'Water',
                 'Electric',
-                'Grass',
                 'Ice',
                 'Fighting',
                 'Poison',
@@ -33,6 +32,7 @@ return new class extends Migration
                 'Dragon',
                 'Dark',
                 'Steel',
+                'Fire',
                 'Fairy'
             ]);
             $table->enum('subtype', [

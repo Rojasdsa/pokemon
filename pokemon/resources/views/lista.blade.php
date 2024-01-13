@@ -24,24 +24,30 @@
             <thead>
                 <tr>
                     <th>Nombre
-                        <a href="{{ route('lista.show', ['order' => ($order == 'asc' ? 'desc' : 'asc')]) }}">
-                            {{ $order == 'asc'? 'Ordenar Descendente' : 'Ordenar Ascendente' }}
+                        <a href="{{ route('lista.show', ['orderField'=>'name','order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
                         </a>
                         {{-- <a href="#" onclick="orderPokemons('name', 'asc')"><i class="fa-solid fa-arrow-up"></i></a>
                         <a href="#" onclick="orderPokemons('name', 'desc')"><i class="fa-solid fa-arrow-down"></i></a>
                    --}}
-                    </th> 
+                    </th>
                     <th>Tipo
-                        <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
-                        <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
+                        <a href="{{ route('lista.show', ['orderField'=>'type','order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
+                        </a>
+
                     </th>
                     <th>Subtipo
-                        <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
-                        <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
+                        <a href="{{ route('lista.show', ['orderField'=>'subtype','order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
+                        </a>
+
                     </th>
                     <th>Región
-                        <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
-                        <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
+                        <a href="{{ route('lista.show', ['orderField'=>'region','order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
+                        </a>
+
                     </th>
                     <th>Acciones</th>
                 </tr>
