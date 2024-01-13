@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use App\Models\Pokemons;
 
 class ListaController extends Controller
 {
-
-    // Mostrar todos los pokemon
+    // MOSTRAR TODOS LOS POKEMON
     public function showPokemons(Request $request)
     {
-
-        // Obtén el parámetro de orden desde la URL
+        // Obtén el parámetro de order desde la URL
         $order = $request->get('order');
         $orderField = $request->get('orderField');
 
-
+        // Mostrará como default el orden por ID al entrar en la vista
         if (empty($order)) {
             $pokemons =  Pokemons::all();
         } else {
@@ -30,7 +28,7 @@ class ListaController extends Controller
     // filtros para requisitos concretos
     // $pokemons=Pokemons::where('type','fire')->get();
 
-    // ELiminar un pokemon
+    // ELIMINAR EL POKEMON SELECCIONADO
     public function deletePokemon($id)
     {
         $pokemon = Pokemons::findOrFail($id);
@@ -40,25 +38,22 @@ class ListaController extends Controller
         return back()->with('Pokemon asesinado');
     }
 
+    // EDITAR DATOS DEL POKEMON
     public function editPokemon($id)
     {
         $pokemon = Pokemons::findOrFail($id);
 
-        $types = Pokemons::select('type')->get()->pluck('type');
+        $types = Pokemons::getEnumValues('pokemons', 'type');
+        $subtypes = Pokemons::getEnumValues('pokemons', 'subtype');
+        $regions = Pokemons::getEnumValues('pokemons', 'region');
 
-        $subtypes = Pokemons::select('subtype')
-            ->groupBy('subtype')
-            ->get()
-            ->pluck('subtype');
-
-        $regions = Pokemons::select('region')
-            ->groupBy('region')
-            ->get()
-            ->pluck('region');
+        dd($types, $subtypes, $regions);
 
         return view('editar', @compact('pokemon', 'types', 'subtypes', 'regions'));
     }
 
+
+    // GUARDAR DATOS EDITADOS DEL POKEMON
     public function updatePokemon($id, Request $request)
     {
         $pokemon = Pokemons::findOrFail($id);
