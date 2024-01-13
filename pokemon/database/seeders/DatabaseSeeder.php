@@ -11,43 +11,69 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
+    
     public function run(): void
     {
         $pokemons = [
             [
-                'name' => 'Charmander',
-                'type' => 'Rock',
-                'subtype' => 'fighting',
+                'name' => 'Bulbasaur',
+                'type' => 'Grass',
+                'subtype' => 'Poison',
                 'region' => 'Kanto',
-
+            ],
+            [
+                'name' => 'Charmander',
+                'type' => 'Fire',
+                'subtype' => 'Fire',
+                'region' => 'Kanto',
             ],
             [
                 'name' => 'Squirtle',
                 'type' => 'Water',
-                'subtype' => 'psychic',
+                'subtype' => 'Water',
                 'region' => 'Kanto',
-
             ],
             [
-                'name' => 'Bulbasaur',
-                'type' => 'Grass',
-                'subtype' => 'poison',
+                'name' => 'Pidgey',
+                'type' => 'Normal',
+                'subtype' => 'Flying',
                 'region' => 'Kanto',
-
             ],
             [
-                'name' => 'Totodile',
+                'name' => 'Nidoqueen',
+                'type' => 'Poison',
+                'subtype' => 'Ground',
+                'region' => 'Kanto',
+            ],
+            [
+                'name' => 'Poliwrath',
                 'type' => 'Water',
-                'subtype' => 'poison',
+                'subtype' => 'Fighting',
                 'region' => 'Kanto',
-
             ],
             [
-                'name' => 'moltres',
-                'type' => 'Fire',
-                'subtype' => 'poison',
+                'name' => 'Kadabra',
+                'type' => 'Psychic',
+                'subtype' => 'Psychic',
                 'region' => 'Kanto',
-
+            ],
+            [
+                'name' => 'Geodude',
+                'type' => 'Rock',
+                'subtype' => 'Ground',
+                'region' => 'Kanto',
+            ],
+            [
+                'name' => 'Haunter',
+                'type' => 'Ghost',
+                'subtype' => 'Poison',
+                'region' => 'Kanto',
+            ],
+            [
+                'name' => 'Pikachu',
+                'type' => 'Electric',
+                'subtype' => 'Electric',
+                'region' => 'Kanto',
             ]
         ];
 
