@@ -36,26 +36,46 @@
                         <td>{{ $pokemon->region }}</td>
 
                         <td>
-                            {{-- Botón para editar un pokemon --}}
+                            {{-- Botón para editar un Pokémon --}}
                             <a href="{{ route('lista.edit', $pokemon->id) }}" class="btn btn-primary">Editar</a>
 
-                            {{-- Botón para eliminar un pokemon --}}
-                            <form action="{{ route('lista.delete', $pokemon->id) }}" method="POST"
-                                style="display: inline;">
-                                @csrf
-                                @method('POST')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                            {{-- Botón para eliminar un Pokémon --}}
+                            <a href="#exampleModal{{ $pokemon->id }}" class="btn" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal{{ $pokemon->id }}">Eliminar</a>
+
+                            <!-- Modal para eliminar un pokemon -->
+                            <div class="modal fade" id="exampleModal{{ $pokemon->id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Pokémon</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Estás seguro de que deseas eliminar el Pokémon "{{ $pokemon->name }}"?
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{{ route('lista.delete', $pokemon->id) }}" method="POST">
+                                                @csrf
+                                                @method('POST')
+                                                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                                            </form>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-
-
-
-
 
 
 </body>
