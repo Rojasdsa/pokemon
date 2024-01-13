@@ -34,21 +34,30 @@ class ListaController extends Controller
     {
         $pokemon = Pokemons::findOrFail($id);
 
-        return view('editar', @compact('pokemon'));
+        $types = Pokemons::select('type')
+            ->groupBy('type')
+            ->get()
+            ->pluck('type');
+
+        $subtypes = Pokemons::select('subtype')
+            ->groupBy('subtype')
+            ->get()
+            ->pluck('subtype');
+
+        return view('editar', @compact('pokemon', 'types', 'subtypes'));
     }
 
     public function updatePokemon($id, Request $request)
     {
         $pokemon = Pokemons::findOrFail($id);
-        
-        $pokemon->name=$request->input('name');
-        $pokemon->type=$request->input('type');
-        $pokemon->subtype=$request->input('subtype');
-        $pokemon->region=$request->input('region');
-        
+
+        $pokemon->name = $request->input('name');
+        $pokemon->type = $request->input('type');
+        $pokemon->subtype = $request->input('subtype');
+        $pokemon->region = $request->input('region');
+
         $pokemon->save();
 
         return redirect()->route('lista.show')->with('success', 'Pokémon actualizado correctamente.');
-
     }
 }

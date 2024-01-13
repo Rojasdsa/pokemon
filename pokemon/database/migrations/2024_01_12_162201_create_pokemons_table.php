@@ -15,14 +15,52 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             //AÑADIR TODOS LOS TIPOS, SUBTIPOS Y  REGIONES
-            $table->enum('type',['fire','water','grass']);
-            $table->enum('subtype',['fighting','psychic','poison']);
+            $table->enum('type', [
+                'Normal',
+                'Fire',
+                'Water',
+                'Electric',
+                'Grass',
+                'Ice',
+                'Fighting',
+                'Poison',
+                'Ground',
+                'Flying',
+                'Psychic',
+                'Bug',
+                'Rock',
+                'Ghost',
+                'Dragon',
+                'Dark',
+                'Steel',
+                'Fairy'
+            ]);
+            $table->enum('subtype', [
+                'Normal',
+                'Fire',
+                'Water',
+                'Electric',
+                'Grass',
+                'Ice',
+                'Fighting',
+                'Poison',
+                'Ground',
+                'Flying',
+                'Psychic',
+                'Bug',
+                'Rock',
+                'Ghost',
+                'Dragon',
+                'Dark',
+                'Steel',
+                'Fairy'
+            ]);
             $table->enum('region',['Kanto','Johto','Hoenn']);
             $table->timestamps();
         });
     }
 
-    
+
 
     /**
      * Reverse the migrations.
