@@ -35,7 +35,7 @@
                     @endforeach
                 </select>
             </div>
-    
+            
             <div class="form-group">
                 <label for="subtype">Subtipo:</label>
                 <select class="form-control" id="subtype" name="subtype" required>
@@ -44,7 +44,7 @@
                     @endforeach
                 </select>
             </div>
-    
+            
             <div class="form-group">
                 <label for="region">Región:</label>
                 <select class="form-control" id="region" name="region" required>
@@ -53,7 +53,7 @@
                     @endforeach
                 </select>
             </div>
-    
+            
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
     </div>
