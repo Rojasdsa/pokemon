@@ -9,12 +9,21 @@ class ListaController extends Controller
 {
 
     // Mostrar todos los pokemon
-    public function showPokemons()
+    public function showPokemons(Request $request)
     {
 
-        $pokemons = Pokemons::all();
+        // Obtén el parámetro de orden desde la URL
+        $order = $request->get('order');
 
-        return view('lista', @compact('pokemons'));
+        if (empty($order)) {
+            $pokemons =  Pokemons::all();
+        } else {
+            $pokemons = Pokemons::orderBy('name', $order)->get();
+        }
+
+        // $pokemons = $order ?  Pokemons::all() : Pokemons::orderBy('name', $order)->get();
+
+        return view('lista', @compact('order', 'pokemons'));
     }
 
     // filtros para requisitos concretos

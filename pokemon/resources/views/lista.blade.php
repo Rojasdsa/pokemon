@@ -24,20 +24,24 @@
             <thead>
                 <tr>
                     <th>Nombre
-                        <a><i class="fa-solid fa-arrow-up"></i></a>
-                        <a><i class="fa-solid fa-arrow-down"></i></a>
-                    </th>
+                        <a href="{{ route('lista.show', ['order' => ($order == 'asc' ? 'desc' : 'asc')]) }}">
+                            {{ $order == 'asc'? 'Ordenar Descendente' : 'Ordenar Ascendente' }}
+                        </a>
+                        {{-- <a href="#" onclick="orderPokemons('name', 'asc')"><i class="fa-solid fa-arrow-up"></i></a>
+                        <a href="#" onclick="orderPokemons('name', 'desc')"><i class="fa-solid fa-arrow-down"></i></a>
+                   --}}
+                    </th> 
                     <th>Tipo
-                        <a><i class="fa-solid fa-arrow-up"></i></a>
-                        <a><i class="fa-solid fa-arrow-down"></i></a>
+                        <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
+                        <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
                     </th>
                     <th>Subtipo
-                        <a><i class="fa-solid fa-arrow-up"></i></a>
-                        <a><i class="fa-solid fa-arrow-down"></i></a>
+                        <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
+                        <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
                     </th>
                     <th>Región
-                        <a><i class="fa-solid fa-arrow-up"></i></a>
-                        <a><i class="fa-solid fa-arrow-down"></i></a>
+                        <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
+                        <a href="#"><i class="fa-solid fa-arrow-down"></i></a>
                     </th>
                     <th>Acciones</th>
                 </tr>
