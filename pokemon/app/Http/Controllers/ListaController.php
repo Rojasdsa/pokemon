@@ -50,13 +50,35 @@ class ListaController extends Controller
             'Ground', 'Ice', 'Normal', 'Poison', 'Psychic',
             'Rock', 'Steel', 'Water'
         ];
+
+        $typesTranslations = [
+            'Bug' => 'Bicho',
+            'Dark' => 'Siniestro',
+            'Dragon' => 'Dragón',
+            'Electric' => 'Eléctrico',
+            'Fairy' => 'Hada',
+            'Fighting' => 'Lucha',
+            'Fire' => 'Fuego',
+            'Flying' => 'Volador',
+            'Ghost' => 'Fantasma',
+            'Grass' => 'Planta',
+            'Ground' => 'Tierra',
+            'Ice' => 'Hielo',
+            'Normal' => 'Normal',
+            'Poison' => 'Veneno',
+            'Psychic' => 'Psíquico',
+            'Rock' => 'Roca',
+            'Steel' => 'Acero',
+            'Water' => 'Agua'
+        ];
+
         $subtypes = $types;
         $regions = [
             'Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Teselia',
             'Kalos', 'Alola', 'Galar'
         ];
 
-        return view('editar', compact('pokemon', 'types', 'subtypes', 'regions'));
+        return view('editar', compact('pokemon', 'types', 'subtypes', 'regions', 'typesTranslations'));
     }
 
 
