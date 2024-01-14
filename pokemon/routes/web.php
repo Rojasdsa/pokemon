@@ -26,4 +26,4 @@ Route::post('/delete/{id}',[ListaController::class,'deletePokemon'])->name('list
 
 // Editar
 Route::get('/editar/{id}',[ListaController::class,'editPokemon'])->name('lista.edit');
-Route::post('/editar/{id}',[ListaController::class,'updatePokemon'])->name('lista.update');
+Route::put('/editar/{id}',[ListaController::class,'updatePokemon'])->name('lista.update');
