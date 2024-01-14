@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pokemon</title>
+    <title>Pokémon</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -18,82 +18,109 @@
 </head>
 
 <body>
-
     <div class="container py-3">
-        <table class="table table-bordered table-hover">
+
+        <div class="text-center">
+            <h2 class="mb-3"><span class="badge rounded-pill text-bg-warning px-4">Show Pokemon</span></h2>
+        </div>
+
+        <table class="table table-bordered table-hover text-center">
             <thead>
                 <tr>
-                    <th>Nombre
-                        <a
-                            href="{{ route('lista.show', ['orderField' => 'name', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
-                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
-                        </a>
-                        {{-- <a href="#" onclick="orderPokemons('name', 'asc')"><i class="fa-solid fa-arrow-up"></i></a>
-                        <a href="#" onclick="orderPokemons('name', 'desc')"><i class="fa-solid fa-arrow-down"></i></a>
-                   --}}
+                    <th scope="col">
+                        <div class="d-flex justify-content-evenly">
+                            <span>Name</span>
+                            <a
+                                href="{{ route('lista.show', ['orderField' => 'name', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                                @if ($order == 'asc')
+                                    <i class="fa-solid fa-arrow-up text-dark"></i>
+                                @else
+                                    <i class="fa-solid fa-arrow-down text-dark"></i>
+                                @endif
+                            </a>
+                        </div>
                     </th>
-                    <th>Tipo
-                        <a
-                            href="{{ route('lista.show', ['orderField' => 'type', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
-                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
-                        </a>
-
+                    <th scope="col">
+                        <div class="d-flex justify-content-evenly">
+                            <span>Type</span>
+                            <a
+                                href="{{ route('lista.show', ['orderField' => 'type', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                                @if ($order == 'asc')
+                                    <i class="fa-solid fa-arrow-up text-dark"></i>
+                                @else
+                                    <i class="fa-solid fa-arrow-down text-dark"></i>
+                                @endif
+                            </a>
+                        </div>
                     </th>
-                    <th>Subtipo
-                        <a
-                            href="{{ route('lista.show', ['orderField' => 'subtype', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
-                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
-                        </a>
-
+                    <th scope="col">
+                        <div class="d-flex justify-content-evenly">
+                            <span>Subtype</span>
+                            <a
+                                href="{{ route('lista.show', ['orderField' => 'subtype', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                                @if ($order == 'asc')
+                                    <i class="fa-solid fa-arrow-up text-dark"></i>
+                                @else
+                                    <i class="fa-solid fa-arrow-down text-dark"></i>
+                                @endif
+                            </a>
+                        </div>
                     </th>
-                    <th>Región
-                        <a
-                            href="{{ route('lista.show', ['orderField' => 'region', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
-                            {{ $order == 'asc' ? 'Desc' : 'Asc' }}
-                        </a>
-
+                    <th scope="col">
+                        <div class="d-flex justify-content-evenly">
+                            <span>Region</span>
+                            <a
+                                href="{{ route('lista.show', ['orderField' => 'region', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
+                                @if ($order == 'asc')
+                                    <i class="fa-solid fa-arrow-up text-dark"></i>
+                                @else
+                                    <i class="fa-solid fa-arrow-down text-dark"></i>
+                                @endif
+                            </a>
+                        </div>
                     </th>
-                    <th>Acciones</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($pokemons as $pokemon)
                     <tr>
-                        <td>{{ $pokemon->name }}</td>
-                        <td>{{ $pokemon->type }}</td>
-                        <td>{{ $pokemon->subtype }}</td>
-                        <td>{{ $pokemon->region }}</td>
+                        <td class="align-middle">{{ $pokemon->name }}</td>
+                        <td class="align-middle">{{ $pokemon->type }}</td>
+                        <td class="align-middle">{{ $pokemon->subtype }}</td>
+                        <td class="align-middle">{{ $pokemon->region }}</td>
 
-                        <td>
+                        <td class="align-middle">
                             {{-- Botón para editar un Pokémon --}}
-                            <a href="{{ route('lista.edit', $pokemon->id) }}" class="btn btn-primary">Editar</a>
+                            <a href="{{ route('lista.edit', $pokemon->id) }}" class="btn btn-primary">Edit</a>
 
                             {{-- Botón para eliminar un Pokémon --}}
-                            <a href="#exampleModal{{ $pokemon->id }}" class="btn" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal{{ $pokemon->id }}">Eliminar</a>
+                            <a href="#exampleModal{{ $pokemon->id }}" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal{{ $pokemon->id }}">Delete</a>
 
-                            <!-- Modal para eliminar un pokemon -->
+                            {{-- Modal para eliminar un pokemon --}}
                             <div class="modal fade" id="exampleModal{{ $pokemon->id }}" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Pokémon</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete Pokémon</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>¿Estás seguro de que deseas eliminar el Pokémon "{{ $pokemon->name }}"?
+                                            <p class="m-0">Are you sure you want to delete <span
+                                                    class="fw-bolder">{{ $pokemon->name }}</span> ?
                                             </p>
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer justify-content-center">
                                             <form action="{{ route('lista.delete', $pokemon->id) }}" method="POST">
                                                 @csrf
                                                 @method('POST')
-                                                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                                                <button type="submit" class="btn btn-danger">Yes, delete</button>
                                             </form>
                                             <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
+                                                data-bs-dismiss="modal">Back</button>
                                         </div>
                                     </div>
                                 </div>
