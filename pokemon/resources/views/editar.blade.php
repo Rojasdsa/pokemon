@@ -44,9 +44,12 @@
                 <h3 class="fw-bold"><label for="subtype" class="form-label">Subtype</label></h3>
                 <select class="form-select" name="subtype">
                     @foreach ($subtypes as $subtype)
-                        <option value="{{ $subtype }}" {{ $subtype == $pokemon->subtype ? 'selected' : '' }}>
-                            {{ $subtype }}</option>
-                    @endforeach
+                    <option value="{{ $subtype }}" {{ $subtype == $pokemon->subtype ? 'selected' : '' }}>
+                        {{ $subtype }}</option>
+                        @endforeach
+                        {{-- Esta opción está vacía porque se contempla el caso 
+                            de que no tenga subtype --}}
+                        <option value="" {{ is_null($pokemon->subtype) ? 'selected' : '' }}></option>
                 </select>
             </div>
 
