@@ -51,7 +51,7 @@
                         @endforeach
                         {{-- Esta opción está vacía porque se contempla el caso 
                             de que no tenga subtype --}}
-                        <option value="" {{ is_null($pokemon->subtype) ? 'selected' : '' }}></option>
+                        <option class="hover-null text-white" value="" {{ is_null($pokemon->subtype) ? 'selected' : '' }}>No subtype</option>
                 </select>
             </div>
 
