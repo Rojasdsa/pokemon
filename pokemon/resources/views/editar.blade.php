@@ -15,49 +15,56 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Editar Pokémon</h2>
-    
+    <div class="container mt-4">
+        <h2 class="mb-4">Editar Pokémon</h2>
+
         <form method="POST" action="{{ route('lista.update', $pokemon->id) }}">
+            @method('PUT')
             @csrf
-            @method('POST')
-    
-            <div class="form-group">
-                <label for="name">Nombre:</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $pokemon->name }}" required>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $pokemon->name }}"
+                    required>
             </div>
-    
-            <div class="form-group">
-                <label for="type">Tipo:</label>
-                <select class="form-control" id="type" name="type" required>
-                    @foreach($types as $type)
-                        <option value="{{ $type }}" {{ $pokemon->type === $type ? 'selected' : '' }}>{{ ucfirst($type) }}</option>
+
+            <div class="mb-3">
+                <label for="type" class="form-label">Tipo:</label>
+                <select class="form-select" name="type">
+                    @foreach ($types as $type)
+                        <option value="{{ $type }}" {{ $type == $pokemon->type ? 'selected' : '' }}>
+                            {{ $type }}</option>
                     @endforeach
                 </select>
             </div>
-            
-            <div class="form-group">
-                <label for="subtype">Subtipo:</label>
-                <select class="form-control" id="subtype" name="subtype" required>
-                    @foreach($subtypes as $subtype)
-                        <option value="{{ $subtype }}" {{ $pokemon->subtype === $subtype ? 'selected' : '' }}>{{ ucfirst($subtype) }}</option>
+
+            <div class="mb-3">
+                <label for="subtype" class="form-label">Subtipo:</label>
+                <select class="form-select" name="subtype">
+                    @foreach ($subtypes as $subtype)
+                        <option value="{{ $subtype }}" {{ $subtype == $pokemon->subtype ? 'selected' : '' }}>
+                            {{ $subtype }}</option>
                     @endforeach
                 </select>
             </div>
-            
-            <div class="form-group">
-                <label for="region">Región:</label>
-                <select class="form-control" id="region" name="region" required>
-                    @foreach($regions as $region)
-                        <option value="{{ $region }}" {{ $pokemon->region === $region ? 'selected' : '' }}>{{ ucfirst($region) }}</option>
+
+            <div class="mb-3">
+                <label for="region" class="form-label">Región:</label>
+                <select class="form-select" name="region">
+                    @foreach ($regions as $region)
+                        <option value="{{ $region }}" {{ $region == $pokemon->region ? 'selected' : '' }}>
+                            {{ $region }}</option>
                     @endforeach
                 </select>
             </div>
-            
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </div>
         </form>
     </div>
-    
+
 </body>
+
 
 </html>
