@@ -54,7 +54,7 @@ return new class extends Migration
                 'Rock',
                 'Steel',
                 'Water',
-            ]);
+            ])->nullable();
             $table->enum('region', [
                 'Alola',
                 'Galar',
