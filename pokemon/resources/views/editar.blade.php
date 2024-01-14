@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pokemon</title>
+    <title>Pokémon</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -15,9 +15,9 @@
 </head>
 
 <body>
-    <div class="container mt-4">
+    <div class="container py-3">
         <div class="text-center">
-            <h2 class="mb-3"><span class="badge rounded-pill text-bg-warning px-4">Edit Pokemon</span></h2>
+            <h2 class="mb-3"><span class="badge rounded-pill text-bg-warning px-4">Edit Pokémon</span></h2>
         </div>
 
         <form method="POST" action="{{ route('lista.update', $pokemon->id) }}">
