@@ -55,7 +55,16 @@ return new class extends Migration
                 'Steel',
                 'Water',
             ]);
-            $table->enum('region',['Kanto','Johto','Hoenn']);
+            $table->enum('region', [
+                'Alola',
+                'Galar',
+                'Hoenn',
+                'Johto',
+                'Kanto',
+                'Kalos',
+                'Sinnoh',
+                'Teselia'
+            ]);
             $table->timestamps();
         });
     }
