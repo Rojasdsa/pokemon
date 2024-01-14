@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Schema;
 use App\Models\Pokemons;
 
 class ListaController extends Controller
@@ -25,8 +24,9 @@ class ListaController extends Controller
         return view('lista', @compact('order', 'pokemons'));
     }
 
-    // filtros para requisitos concretos
-    // $pokemons=Pokemons::where('type','fire')->get();
+    // filtro para requisitos concretos
+    // $pokemons=Pokemons::where('type','Fire')->get();
+
 
     // ELIMINAR EL POKEMON SELECCIONADO
     public function deletePokemon($id)
@@ -35,21 +35,28 @@ class ListaController extends Controller
 
         $pokemon->forceDelete();
 
-        return back()->with('Pokemon asesinado');
+        return back()->with('success', 'Pokémon elimnado correctamente.');
     }
+
 
     // EDITAR DATOS DEL POKEMON
     public function editPokemon($id)
     {
         $pokemon = Pokemons::findOrFail($id);
 
-        $types = Pokemons::getEnumValues('pokemons', 'type');
-        $subtypes = Pokemons::getEnumValues('pokemons', 'subtype');
-        $regions = Pokemons::getEnumValues('pokemons', 'region');
+        $types = [
+            'Bug', 'Dark', 'Dragon', 'Electric', 'Fairy',
+            'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass',
+            'Ground', 'Ice', 'Normal', 'Poison', 'Psychic',
+            'Rock', 'Steel', 'Water'
+        ];
+        $subtypes = $types;
+        $regions = [
+            'Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Teselia',
+            'Kalos', 'Alola', 'Galar'
+        ];
 
-        dd($types, $subtypes, $regions);
-
-        return view('editar', @compact('pokemon', 'types', 'subtypes', 'regions'));
+        return view('editar', compact('pokemon', 'types', 'subtypes', 'regions'));
     }
 
 
