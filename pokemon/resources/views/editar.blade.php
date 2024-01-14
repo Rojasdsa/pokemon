@@ -16,39 +16,42 @@
 
 <body>
     <div class="container mt-4">
-        <h2 class="mb-4">Editar Pokémon</h2>
-    
+        <div class="text-center">
+            <h2 class="mb-3"><span class="badge rounded-pill text-bg-warning px-4">Edit Pokemon</span></h2>
+        </div>
+
         <form method="POST" action="{{ route('lista.update', $pokemon->id) }}">
             @method('PUT')
             @csrf
-    
+
             <div class="mb-3">
-                <h3 class="fw-bold"><label for="name" class="form-label">Nombre</label></h3>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $pokemon->name }}" required>
+                <h3 class="fw-bold"><label for="name" class="form-label">Name</label></h3>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $pokemon->name }}"
+                    required>
             </div>
-    
+
             <div class="mb-3">
-                <h3 class="fw-bold"><label for="type" class="form-label">Tipo</label></h3>
+                <h3 class="fw-bold"><label for="type" class="form-label">Type</label></h3>
                 <select class="form-select" name="type">
                     @foreach ($types as $type)
                         <option value="{{ $type }}" {{ $type == $pokemon->type ? 'selected' : '' }}>
-                            {{ $typesTranslations[$type] }}</option>
+                            {{ $type }}</option>
                     @endforeach
                 </select>
             </div>
-    
+
             <div class="mb-3">
-                <h3 class="fw-bold"><label for="subtype" class="form-label">Subtipo</label></h3>
+                <h3 class="fw-bold"><label for="subtype" class="form-label">Subtype</label></h3>
                 <select class="form-select" name="subtype">
                     @foreach ($subtypes as $subtype)
                         <option value="{{ $subtype }}" {{ $subtype == $pokemon->subtype ? 'selected' : '' }}>
-                            {{ $typesTranslations[$subtype] }}</option>
+                            {{ $subtype }}</option>
                     @endforeach
                 </select>
             </div>
-    
+
             <div class="mb-3">
-                <h3 class="fw-bold"><label for="region" class="form-label">Región</label></h3>
+                <h3 class="fw-bold"><label for="region" class="form-label">Region</label></h3>
                 <select class="form-select" name="region">
                     @foreach ($regions as $region)
                         <option value="{{ $region }}" {{ $region == $pokemon->region ? 'selected' : '' }}>
@@ -56,12 +59,12 @@
                     @endforeach
                 </select>
             </div>
-    
+
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <button type="submit" class="btn btn-warning fw-medium">Save changes</button>
             </div>
         </form>
-    </div>    
+    </div>
 
 </body>
 
