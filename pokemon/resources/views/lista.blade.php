@@ -91,12 +91,18 @@
                         <td class="align-middle">{{ $pokemon->region }}</td>
 
                         <td class="align-middle">
-                            {{-- Botón para editar un Pokémon --}}
-                            <a href="{{ route('lista.edit', $pokemon->id) }}" class="btn btn-primary">Edit</a>
+                            <div class="d-flex justify-content-center">
+                                {{-- Botón para editar un Pokémon --}}
+                                <a href="{{ route('lista.edit', $pokemon->id) }}" class="btn btn-primary mx-1">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
 
-                            {{-- Botón para eliminar un Pokémon --}}
-                            <a href="#exampleModal{{ $pokemon->id }}" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal{{ $pokemon->id }}">Delete</a>
+                                {{-- Botón para eliminar un Pokémon --}}
+                                <a href="#exampleModal{{ $pokemon->id }}" class="btn btn-danger mx-1"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pokemon->id }}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
 
                             {{-- Modal para eliminar un pokemon --}}
                             <div class="modal fade" id="exampleModal{{ $pokemon->id }}" tabindex="-1"
