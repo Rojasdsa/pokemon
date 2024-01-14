@@ -13,7 +13,7 @@ class ListaController extends Controller
         // Obtén el parámetro de order desde la URL
         $order = $request->get('order');
         $orderField = $request->get('orderField');
-
+        
         // Mostrará como default el orden por ID al entrar en la vista
         if (empty($order)) {
             $pokemons =  Pokemons::all();
@@ -35,7 +35,7 @@ class ListaController extends Controller
 
         $pokemon->forceDelete();
 
-        return back()->with('success', 'Pokémon elimnado correctamente.');
+        return back()->with('success', 'Pokemon deleted successfully');
     }
 
 
@@ -51,34 +51,13 @@ class ListaController extends Controller
             'Rock', 'Steel', 'Water'
         ];
 
-        $typesTranslations = [
-            'Bug' => 'Bicho',
-            'Dark' => 'Siniestro',
-            'Dragon' => 'Dragón',
-            'Electric' => 'Eléctrico',
-            'Fairy' => 'Hada',
-            'Fighting' => 'Lucha',
-            'Fire' => 'Fuego',
-            'Flying' => 'Volador',
-            'Ghost' => 'Fantasma',
-            'Grass' => 'Planta',
-            'Ground' => 'Tierra',
-            'Ice' => 'Hielo',
-            'Normal' => 'Normal',
-            'Poison' => 'Veneno',
-            'Psychic' => 'Psíquico',
-            'Rock' => 'Roca',
-            'Steel' => 'Acero',
-            'Water' => 'Agua'
-        ];
-
         $subtypes = $types;
         $regions = [
             'Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Teselia',
             'Kalos', 'Alola', 'Galar'
         ];
 
-        return view('editar', compact('pokemon', 'types', 'subtypes', 'regions', 'typesTranslations'));
+        return view('editar', compact('pokemon', 'types', 'subtypes', 'regions'));
     }
 
 
@@ -94,6 +73,6 @@ class ListaController extends Controller
 
         $pokemon->save();
 
-        return redirect()->route('lista.show')->with('success', 'Pokémon actualizado correctamente.');
+        return redirect()->route('lista.show')->with('success', 'Pokemon updated successfully');
     }
 }
