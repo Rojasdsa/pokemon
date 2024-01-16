@@ -2,7 +2,7 @@
    
 @section('lista')
 
-<div class="container py-3">
+<div class=" lista-main container py-3">
 
     <div class="text-center">
         <h2 class="mb-3"><span class="badge rounded-pill text-bg-warning px-4">Show Pokemon</span></h2>
