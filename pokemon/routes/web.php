@@ -21,13 +21,13 @@ Route::get('/', function () {
 
 // Rutas auth
 Route::get('/home', function () {
-    return view('auth.dashboard');
+    return view('lista');
 })->middleware(['auth', 'verified']);
 
 
 /* Rutas para lista de pokemons */
-// Mostrar
-Route::get('/list', [ListaController::class, 'showPokemons'])->name('lista.show');
+// Mostrar || Al hacer login entrará en esta vista
+Route::get('/home', [ListaController::class, 'showPokemons'])->name('lista.show');
 
 // Eliminar
 Route::post('/delete/{id}', [ListaController::class, 'deletePokemon'])->name('lista.delete');
