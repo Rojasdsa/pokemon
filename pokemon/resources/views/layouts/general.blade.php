@@ -1,15 +1,15 @@
 @extends('layouts.template')
 
 @section('general')
-    {{-- HEADER --}}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    {{-- HEADER --}}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-fluid">
             <!-- Navbar Brand -->
-            <a class="navbar-brand" href="#">Mi Proyecto</a>
+            <a class="navbar-brand" href="#">Pokemon</a>
 
             <!-- Navbar Toggler Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,13 +35,28 @@
                         </ul>
                     </li>
                 </ul>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+
             </div>
         </div>
     </nav>
-
 
     {{-- Vista principal --}}
     @yield('lista')
 
     {{-- FOOTER --}}
+  <footer>
+    <div class="text-center py-4 mx-4">
+        <p class="pe-1">
+            ®2024 Proyecto Pokémon (Recuperación Cliente, Servidor, Diseño)
+        </p>
+        <p class="ps-1">
+            Fernando A. Rojas del Marco, 2º DAW
+        </p>
+    </div>
+  </footer>
+    
 @endsection
