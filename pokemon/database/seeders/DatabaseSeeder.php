@@ -5,13 +5,14 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Pokemons;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
-    
+
     public function run(): void
     {
         $pokemons = [
@@ -79,6 +80,37 @@ class DatabaseSeeder extends Seeder
 
         foreach ($pokemons as $pokemon) {
             Pokemons::create($pokemon);
+        }
+
+        $users = [
+            [
+                'name' => 'Manu',
+                'username' => 'Ash',
+                'password' => bcrypt('manumanu'),
+                'email' => 'ash@example.com',
+                'email_verified_at' => now(),
+            ],
+
+            [
+                'name' => 'Luis',
+                'username' => 'Brock',
+                'password' => bcrypt('luisluis'),
+                'email' => 'brock@example.com',
+                'email_verified_at' => now(),
+            ],
+
+            [
+                'name' => 'Rafa',
+                'username' => 'Misty',
+                'password' => bcrypt('rafarafa'),
+                'email' => 'misty@example.com',
+                'email_verified_at' => now(),
+            ]
+
+        ];
+
+        foreach ($users as $user) {
+            User::create($user);
         }
     }
 }
