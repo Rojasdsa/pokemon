@@ -10,18 +10,10 @@ body {
 
 /* NAVBAR */
 .navbar-toggler:focus {
-    box-shadow: 0;
-}
-
-.navbar-nav{
-    margin-right: 80px;
+    box-shadow:none;
 }
 
 /* FOOTER */
-footer{
-    background-color: rgb(189, 71, 71, 0.5);
-    
-}
 
 footer div {
     display: flex;
