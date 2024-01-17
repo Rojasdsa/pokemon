@@ -60,7 +60,6 @@ class ListaController extends Controller
         return view('editar', compact('pokemon', 'types', 'subtypes', 'regions'));
     }
 
-
     // GUARDAR DATOS EDITADOS DEL POKEMON
     public function updatePokemon($id, Request $request)
     {
