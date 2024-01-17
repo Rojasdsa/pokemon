@@ -14,9 +14,14 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    @vite(['resources/js/app.js', 'resources/css/app.scss'])
-</head>
+
+{{-- css/js de bootstrap --}}
+@vite([
+    'resources/js/app.js', 
+    'resources/css/app.scss', 
+    'resources/css/app.css',
+    'resources/css/custom.scss',
+    ])</head>
 
 <body>
     <div id="app">
