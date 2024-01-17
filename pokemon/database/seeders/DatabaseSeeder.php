@@ -87,24 +87,27 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Manu',
                 'username' => 'Ash',
                 'email' => 'ash@example.com',
-                'email_verified_at' => now(),
                 'password' => bcrypt('manumanu'),
+                'color_preference' =>'#fcba03',
+                'email_verified_at' => now(),
             ],
 
             [
                 'name' => 'Luis',
                 'username' => 'Brock',
                 'email' => 'brock@example.com',
-                'email_verified_at' => now(),
                 'password' => bcrypt('luisluis'),
+                'color_preference' =>'#03fc6f',
+                'email_verified_at' => now(),
             ],
 
             [
                 'name' => 'Rafa',
                 'username' => 'Misty',
                 'email' => 'misty@example.com',
-                'email_verified_at' => now(),
                 'password' => bcrypt('rafarafa'),
+                'color_preference' =>'#ab8cde',
+                'email_verified_at' => now(),
             ]
 
         ];

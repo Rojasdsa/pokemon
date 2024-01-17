@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pokemons;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ListaController extends Controller
 {
@@ -13,7 +15,7 @@ class ListaController extends Controller
         // Obtén el parámetro de order desde la URL
         $order = $request->get('order');
         $orderField = $request->get('orderField');
-        
+
         // Mostrará como default el orden por ID al entrar en la vista
         if (empty($order)) {
             $pokemons =  Pokemons::all();
@@ -73,5 +75,23 @@ class ListaController extends Controller
         $pokemon->save();
 
         return redirect()->route('lista.show')->with('success', 'Pokemon updated successfully');
+    }
+
+    // ELEGIR COLOR FAVORITO
+
+    public function updateColor(Request $request)
+    {
+        $user = Auth::user();
+        $user->color_preference = $request->input('color');
+        $user-> save();
+
+        $response = [
+            'success' => true,
+            'message' => 'Color actualizado exitosamente.',
+            'elementId' => 'colorPrefElem', // Agrega el ID del elemento aquí
+            'color' => $request->input('color'),
+        ];
+    
+        return response()->json($response);
     }
 }

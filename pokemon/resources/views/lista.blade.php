@@ -121,5 +121,43 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{-- Botón para cambiar el color del navbar (COOKIES) --}}
+        <a href="#colorModal{{ $pokemon->id }}" class="btn btn-danger mx-1" data-bs-toggle="modal"
+            data-bs-target="#colorModal{{ $pokemon->id }}">
+            <i class="fa-solid fa-trash"></i>
+        </a>
+        {{-- Modal para cambiar el color del navbar (COOKIES) --}}
+        <div class="modal fade" id="colorModal{{ $pokemon->id }}" tabindex="-1" aria-labelledby="colorModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="colorModalLabel">Select your color</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center pb-0">
+
+                        {{-- FORM --}}
+                        <form action="{{ route('lista.color') }}" method="POST" enctype="multipart/form-data" id="colorPreferenceForm">
+                            @csrf
+                            @method('POST')
+                            <p class="m-0 pb-2">Which one do you prefer?
+                                <div class="col-4 form-group">
+                                    <label for="color" class="hidden">Color:</label>
+                                    <input type="color" name="color" id="color" class="form-control" value="{{ Auth::user()->color_preference }}" required>
+                                    <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+                                </div>
+                            </p>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 @endsection

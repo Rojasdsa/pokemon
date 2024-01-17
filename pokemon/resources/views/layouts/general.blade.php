@@ -3,7 +3,7 @@
 @section('general')
 
     {{-- HEADER --}}
-    <nav class="navbar navbar-expand-md navbar-light bg-info">
+    <nav class="navbar navbar-expand-md navbar-light color-pref-elem" id="colorPrefElem">
         <div class="container-fluid">
             <!-- Navbar Brand -->
             <a class="navbar-brand" href="#">Pokemon</a>
@@ -48,10 +48,11 @@
 
     {{-- Vista principal --}}
     @yield('lista')
+    @yield('editar')
 
     {{-- FOOTER --}}
   <footer>
-    <div class="text-center py-3 border-1 bg-info">
+    <div class="text-center py-3 border-1 color-pref-elem" id="colorPrefElem">
         <p class="pe-1">
             ®2024 Proyecto Pokémon (Recuperación Cliente, Servidor, Diseño)
         </p>
