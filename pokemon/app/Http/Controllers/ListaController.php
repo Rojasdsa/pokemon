@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pokemons;
+use App\Models\PokemonUser;
 use App\Models\User;
 use App\Models\Img;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,17 @@ class ListaController extends Controller
         $order = $request->get('order');
         $orderField = $request->get('orderField');
 
+        // Averiguamos la ID del user
+        $userId = Auth::user()->id;
+
         // Mostrará como default el orden por ID al entrar en la vista
         if (empty($order)) {
-            $pokemons =  Pokemons::all();
+
+            // Aquí están todos los pokemon del user
+            $pokemonsId = PokemonUser::where('user_id', $userId)->pluck('pokemon_id');
+            
+            // Obtenemos todos los Pokemon que coincidan con las ID
+            $pokemons = Pokemons::whereIn('id', $pokemonsId)->get();
         } else {
             $pokemons = Pokemons::orderBy($orderField, $order)->get();
         }
@@ -29,6 +38,35 @@ class ListaController extends Controller
 
     // filtro para requisitos concretos
     // $pokemons=Pokemons::where('type','Fire')->get();
+
+
+    // AÑADIR STARTERS A LA TABLA
+    public function startersPokemon()
+    {
+        // Obtén el usuario actual
+        $user = Auth::user()->id;
+
+        // los starters tienes las id entre 1 y 10
+        $starters = Pokemons::where('id', '<', 11)->get();
+
+        foreach ($starters as $starter) {
+            $starterId = $starter->id;
+
+            $checkPokemon = PokemonUser::where('user_id', $user)->where('pokemon_id', $starterId)->get();
+            if ($checkPokemon->isEmpty()) {
+
+                $pokemonUser = new PokemonUser();
+
+                $pokemonUser->pokemon_id = $starter->id;
+                $pokemonUser->user_id = $user;
+
+                $pokemonUser->save();
+            }
+        }
+
+        // Redirige de nuevo con un mensaje de éxito
+        return back()->with('success', 'Starters added successfully');
+    }
 
 
     // CREAR DATOS DEL POKEMON
@@ -77,6 +115,11 @@ class ListaController extends Controller
             $i++;
         }
 
+        $userId = Auth::user()->id;
+        $pokemonUser = new PokemonUser();
+        $pokemonUser->pokemon_id = $pokemon->id;
+        $pokemonUser->user_id = $userId;
+        $pokemonUser->save();
         return redirect()->route('lista.show')->with('success', 'Pokemon created successfully');
     }
 
@@ -121,17 +164,9 @@ class ListaController extends Controller
     // ELIMINAR EL POKEMON SELECCIONADO
     public function deletePokemon($id)
     {
-        $pokemon = Pokemons::findOrFail($id);
+        $pokemonUser = PokemonUser::where('pokemon_id', $id)->first();
 
-        // Primero eliminamos las imágenes 
-        $imgs = Img::where('pokemon_id', $id)->get();
-
-        foreach ($imgs as $img) {
-            $img->forceDelete();
-        }
-
-        // Sin imágenes, eliminamos al pokemon
-        $pokemon->forceDelete();
+        $pokemonUser->forceDelete();
 
         return back()->with('success', 'Pokemon deleted successfully');
     }
