@@ -26,7 +26,7 @@ class ListaController extends Controller
 
             // Aquí están todos los pokemon del user
             $pokemonsId = PokemonUser::where('user_id', $userId)->pluck('pokemon_id');
-            
+
             // Obtenemos todos los Pokemon que coincidan con las ID
             $pokemons = Pokemons::whereIn('id', $pokemonsId)->get();
         } else {
@@ -102,25 +102,29 @@ class ListaController extends Controller
 
         // Guarda los datos en la bbdd
         $pokemon->save();
-        // Guardamos varias imágenes
-        $i = 0;
-        foreach ($request->img as $imagen) {
-            $img = new Img();
 
-            $imageName = $pokemon->id . '_' . $i . '.' . $imagen->extension();
-            $img->name = $imageName;
-            $imagen->move(public_path('assets/img/' . $pokemon->id), $imageName);
-            $img->pokemon_id = $pokemon->id;
-            $img->save();
-            $i++;
+
+        if ($request->has('img') && is_array($request->img)) {
+            $i = 0;
+            // Guardamos varias imágenes
+            foreach ($request->img as $imagen) {
+                $img = new Img();
+
+                $imageName = $pokemon->id . '_' . $i . '.' . $imagen->extension();
+                $img->name = $imageName;
+                $imagen->move(public_path('assets/img/' . $pokemon->id), $imageName);
+                $img->pokemon_id = $pokemon->id;
+                $img->save();
+                $i++;
+            }
+
+            $userId = Auth::user()->id;
+            $pokemonUser = new PokemonUser();
+            $pokemonUser->pokemon_id = $pokemon->id;
+            $pokemonUser->user_id = $userId;
+            $pokemonUser->save();
+            return redirect()->route('lista.show')->with('success', 'Pokemon created successfully');
         }
-
-        $userId = Auth::user()->id;
-        $pokemonUser = new PokemonUser();
-        $pokemonUser->pokemon_id = $pokemon->id;
-        $pokemonUser->user_id = $userId;
-        $pokemonUser->save();
-        return redirect()->route('lista.show')->with('success', 'Pokemon created successfully');
     }
 
 
