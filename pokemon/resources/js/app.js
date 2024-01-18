@@ -1,6 +1,21 @@
+'use strict'
+
 import * as bootstrap from 'bootstrap';
 
+// ACTUALIZAR AÑO AUTOMÁTICAMENTE
+// Obtiene el elemento span por su id
+let currentYearElement = document.getElementById("currentYear");
 
+// Obtiene el año actual
+let currentYear = new Date().getFullYear();
+
+// Asigna el año actual al contenido del span
+currentYearElement.textContent = "®" + currentYear + " Proyecto Pokémon (Recuperación Cliente, Servidor, Diseño)";
+
+
+ 
+
+// COLOR FAV DEL USER - NO FUNCIONA
 document.addEventListener('DOMContentLoaded', function () {
     // Asigna el color del usuario a los elementos con la clase correspondiente
     function applyUserColor(color, className) {
