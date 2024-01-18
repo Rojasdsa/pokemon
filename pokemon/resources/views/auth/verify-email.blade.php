@@ -14,7 +14,16 @@
                 <div class="card-header">{{ __('Email Verification') }}</div>
 
                 <div class="card-body">
-                    <p>You must verify your email address. Please, check your email for a verification link</p>
+                     <div class="container text-center">
+                        <p>You have been registered successfuly
+                            <div class="border d-grid mx-5">
+                                <span><strong>User:</strong> {{Auth::user()->name}}</span>
+                                {{-- Me parece feo enseñar la password así que mostraré el email de registro --}}
+                                <span><strong>Email:</strong> {{Auth::user()->email}}</span>
+                            </div>  
+                        </p>
+                     </div>
+                    <p class="text-center">You must verify your email address. Please, check your email for a verification link</p>
                     <form method="POST" action="{{ route('verification.send') }}">
                         @csrf
 
