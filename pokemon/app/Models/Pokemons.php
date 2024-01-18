@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pokemons extends Model
 {
     use HasFactory;
+
+    public function img(){
+
+        return $this->hasOne(Img::class);
+    }
 }
