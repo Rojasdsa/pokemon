@@ -11,34 +11,6 @@ body {
 
 /* NAVBAR */
 .navbar-toggler:focus {
-    box-shadow: none;
-}
-
-/* FOOTER */
-
-footer div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-footer div p {
-    margin: 0;
-    font-style: italic;
-}
-
-/* BODY */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* NAVBAR */
-.navbar-toggler:focus {
     box-shadow:none;
 }
 
