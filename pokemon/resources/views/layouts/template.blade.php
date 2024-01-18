@@ -21,8 +21,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-
-<body>
+<body class="bg-general-img">
 
 @yield('general')
 

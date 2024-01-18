@@ -97,7 +97,7 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="m-0">Are you sure you want to delete <span
+                                            <p class="m-0 fw-medium">Are you sure you want to delete <span
                                                     class="fw-bolder">{{ $pokemon->name }}</span> ?
                                             </p>
                                         </div>
@@ -123,7 +123,7 @@
         {{-- <img class="card-img rounded-0 img-fluid" src="/assets/img/{{ $pokemon->id }}/{{ $pokemon->id }}_0.png"> --}}
         
         
-        <div class="container text-center">
+        <div class="container text-center mb-5">
             {{-- Botón para cambiar el color del navbar (COOKIES) --}}
             <a href="" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="">
                 <i class="fa-solid fa-gear"></i>

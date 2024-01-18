@@ -50,11 +50,21 @@
 
             <div class="mb-3">
                 <h3 class="fw-bold"><label for="img" class="form-label">Images</label></h3>
-                <input class="form-control" name="img[]" type="file" id="img" multiple>
+            <br>
+              <div class="container d-flex">
+
+                <div class="container custom-file col-3 m-0">
+                    <input type="file" class="custom-file-input" name="img[]" id="img" multiple>
+                    <label class="custom-file-label" for="img">Choose files</label>
+                </div>
+
+                <div class="col-9 d-flex align-items-center">Aqui se verán las imágenes subidas</div>
+
+              </div>
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-warning fw-medium">Save changes</button>
+                <button type="submit" class="btn btn-warning fw-medium border">Save changes</button>
             </div>
         </form>
     </div>
