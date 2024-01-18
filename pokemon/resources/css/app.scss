@@ -10,6 +10,7 @@ body {
 }
 
 /* NAVBAR */
+
 .navbar-toggler:focus {
     box-shadow:none;
 }
@@ -32,11 +33,6 @@ footer div p {
 .lista-main,
 .editar-main {
     flex: 1;
-}
-/* VISTA EDITAR */
-/* Resalta la opción escondida para subtype=null */
-.hover-null.hovered {
-    color: black;
 }
 
 /* VISTA EDITAR */
