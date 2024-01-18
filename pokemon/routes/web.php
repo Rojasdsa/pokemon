@@ -32,6 +32,9 @@ Route::prefix('')->middleware('auth', 'verified')->group(function () {
     // Mostrar || Al hacer login entrará en esta vista
     Route::get('/home', [ListaController::class, 'showPokemons'])->name('lista.show');
 
+    // Añadir 10 iniciales
+    Route::get('/starter', [ListaController::class, 'startersPokemon'])->name('lista.starters');
+
     // Crear
     Route::get('/crear', [ListaController::class, 'newPokemon'])->name('lista.new');
     Route::put('/crear', [ListaController::class, 'createPokemon'])->name('lista.create');
