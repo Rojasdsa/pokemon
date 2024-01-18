@@ -27,7 +27,7 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified']);
 
 
-Route::prefix('')->middleware('auth')->group(function () {
+Route::prefix('')->middleware('auth', 'verified')->group(function () {
     /* Rutas para lista de pokemons */
     // Mostrar || Al hacer login entrará en esta vista
     Route::get('/home', [ListaController::class, 'showPokemons'])->name('lista.show');
