@@ -123,10 +123,12 @@
         </table>
 
         {{-- Botón para cambiar el color del navbar (COOKIES) --}}
-        <a href="#colorModal{{ $pokemon->id }}" class="btn btn-danger mx-1" data-bs-toggle="modal"
-            data-bs-target="#colorModal{{ $pokemon->id }}">
-            <i class="fa-solid fa-trash"></i>
-        </a>
+        <div class="container text-center">
+            <a href="#colorModal{{ $pokemon->id }}" class="btn btn-info mx-1" data-bs-toggle="modal"
+                data-bs-target="#colorModal{{ $pokemon->id }}">
+                <i class="fa-solid fa-gear"></i>
+            </a>
+        </div>
         {{-- Modal para cambiar el color del navbar (COOKIES) --}}
         <div class="modal fade" id="colorModal{{ $pokemon->id }}" tabindex="-1" aria-labelledby="colorModalLabel"
             aria-hidden="true">
@@ -139,15 +141,17 @@
                     <div class="modal-body text-center pb-0">
 
                         {{-- FORM --}}
-                        <form action="{{ route('lista.color') }}" method="POST" enctype="multipart/form-data" id="colorPreferenceForm">
+                        <form action="{{ route('lista.color') }}" method="POST" enctype="multipart/form-data"
+                            id="colorPreferenceForm">
                             @csrf
                             @method('POST')
                             <p class="m-0 pb-2">Which one do you prefer?
-                                <div class="col-4 form-group">
-                                    <label for="color" class="hidden">Color:</label>
-                                    <input type="color" name="color" id="color" class="form-control" value="{{ Auth::user()->color_preference }}" required>
-                                    <button type="submit" class="btn btn-primary mt-5">Guardar</button>
-                                </div>
+                            <div class="col-4 form-group">
+                                <label for="color" class="hidden">Color:</label>
+                                <input type="color" name="color" id="color" class="form-control"
+                                    value="{{ Auth::user()->color_preference }}" required>
+                                <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+                            </div>
                             </p>
                         </form>
 

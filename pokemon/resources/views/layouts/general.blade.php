@@ -23,9 +23,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user"></i>
                             {{ Auth::user()->name }}
                         </a>
-
+                        
                         {{-- dropdown-menu-end despliega el menú hacia la izquierda --}}
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
