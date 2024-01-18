@@ -10,9 +10,9 @@
     {{-- css/js de bootstrap --}}
     @vite([
         'resources/js/app.js', 
+        'resources/css/custom.scss', //Aquí está bootstrap
         'resources/css/app.scss', 
         'resources/css/app.css',
-        'resources/css/custom.scss',
         ])
     {{-- Iconos --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
