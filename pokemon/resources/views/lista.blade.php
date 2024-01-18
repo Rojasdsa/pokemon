@@ -86,7 +86,6 @@
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
                             </div>
-
                             {{-- Modal para eliminar un pokemon --}}
                             <div class="modal fade" id="exampleModal{{ $pokemon->id }}" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,16 +115,17 @@
                                 </div>
                             </div>
                         </td>
-
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
+        {{-- <img class="card-img rounded-0 img-fluid" src="/assets/img/{{ $pokemon->id }}/{{ $pokemon->id }}_0.png"> --}}
+        
+        
         <div class="container text-center">
             {{-- Botón para cambiar el color del navbar (COOKIES) --}}
-            <a href="#colorModal{{ $pokemon->id }}" class="btn btn-warning mx-1" data-bs-toggle="modal"
-                data-bs-target="#colorModal{{ $pokemon->id }}">
+            <a href="" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="">
                 <i class="fa-solid fa-gear"></i>
             </a>
 
@@ -133,10 +133,14 @@
             <a href="{{ route('lista.new') }}" class="btn btn-warning mx-1">
                 <i class="fa-solid fa-plus"></i>
             </a>
+
+            {{-- Botón para añadir 10 pokémon iniciales --}}
+            <a href="{{ route('lista.starters') }}" class="btn btn-warning mx-1">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </a>
         </div>
         {{-- Modal para cambiar el color del navbar (COOKIES) --}}
-        <div class="modal fade" id="colorModal{{ $pokemon->id }}" tabindex="-1" aria-labelledby="colorModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="" tabindex="-1" aria-labelledby="colorModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
