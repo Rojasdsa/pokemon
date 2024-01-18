@@ -122,11 +122,16 @@
             </tbody>
         </table>
 
-        {{-- Botón para cambiar el color del navbar (COOKIES) --}}
         <div class="container text-center">
-            <a href="#colorModal{{ $pokemon->id }}" class="btn btn-info mx-1" data-bs-toggle="modal"
+            {{-- Botón para cambiar el color del navbar (COOKIES) --}}
+            <a href="#colorModal{{ $pokemon->id }}" class="btn btn-warning mx-1" data-bs-toggle="modal"
                 data-bs-target="#colorModal{{ $pokemon->id }}">
                 <i class="fa-solid fa-gear"></i>
+            </a>
+
+            {{-- Botón para crear un Pokémon --}}
+            <a href="{{ route('lista.new') }}" class="btn btn-warning mx-1">
+                <i class="fa-solid fa-plus"></i>
             </a>
         </div>
         {{-- Modal para cambiar el color del navbar (COOKIES) --}}
