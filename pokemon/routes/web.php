@@ -32,6 +32,10 @@ Route::prefix('')->middleware('auth')->group(function () {
     // Mostrar || Al hacer login entrará en esta vista
     Route::get('/home', [ListaController::class, 'showPokemons'])->name('lista.show');
 
+    // Crear
+    Route::get('/crear', [ListaController::class, 'newPokemon'])->name('lista.new');
+    Route::put('/crear', [ListaController::class, 'createPokemon'])->name('lista.create');
+
     // Eliminar
     Route::post('/delete/{id}', [ListaController::class, 'deletePokemon'])->name('lista.delete');
 
