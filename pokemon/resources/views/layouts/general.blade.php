@@ -3,7 +3,7 @@
 @section('general')
 
     {{-- HEADER --}}
-    <nav class="navbar navbar-expand-md navbar-light color-pref-elem" id="colorPrefElem">
+    <nav class="navbar navbar-expand-md navbar-light color-pref-elem" id="colorPrefElem" style="background-color:{{Auth::user()->color_preference}}">
         <div class="container-fluid">
             <!-- Navbar Brand -->
             <a class="navbar-brand" href="#">Pokemon</a>
@@ -49,13 +49,14 @@
 
     {{-- Vista principal --}}
     @yield('lista')
+    @yield('crear')
     @yield('editar')
 
     {{-- FOOTER --}}
   <footer>
-    <div class="text-center py-3 border-1 color-pref-elem" id="colorPrefElem">
+    <div class="text-center py-3 border-1 color-pref-elem" id="colorPrefElem" style="background-color:{{Auth::user()->color_preference}}">
         <p class="pe-1">
-            ®2024 Proyecto Pokémon (Recuperación Cliente, Servidor, Diseño)
+            <span id="currentYear"></span>
         </p>
         <p class="ps-1">
             Fernando A. Rojas del Marco, 2º DAW
