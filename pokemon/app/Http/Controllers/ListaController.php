@@ -31,80 +31,6 @@ class ListaController extends Controller
     // $pokemons=Pokemons::where('type','Fire')->get();
 
 
-    // ELIMINAR EL POKEMON SELECCIONADO
-    public function deletePokemon($id)
-    {
-        $pokemon = Pokemons::findOrFail($id);
-
-        // Primero eliminamos las imágenes 
-        $imgs = Img::where('pokemon_id', $id)->get();
-
-        foreach($imgs as $img){
-            $img->forceDelete();
-        }
-
-        // Sin imágenes, eliminamos al pokemon
-        $pokemon->forceDelete();
-
-        return back()->with('success', 'Pokemon deleted successfully');
-    }
-
-
-    // EDITAR DATOS DEL POKEMON
-    public function editPokemon($id)
-    {
-        $pokemon = Pokemons::findOrFail($id);
-
-        $types = [
-            'Bug', 'Dark', 'Dragon', 'Electric', 'Fairy',
-            'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass',
-            'Ground', 'Ice', 'Normal', 'Poison', 'Psychic',
-            'Rock', 'Steel', 'Water'
-        ];
-
-        $subtypes = $types;
-        $regions = [
-            'Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Teselia',
-            'Kalos', 'Alola', 'Galar'
-        ];
-
-        return view('editar', compact('pokemon', 'types', 'subtypes', 'regions'));
-    }
-
-    // GUARDAR DATOS EDITADOS DEL POKEMON
-    public function updatePokemon($id, Request $request)
-    {
-        $pokemon = Pokemons::findOrFail($id);
-
-        $pokemon->name = $request->input('name');
-        $pokemon->type = $request->input('type');
-        $pokemon->subtype = $request->input('subtype');
-        $pokemon->region = $request->input('region');
-
-        $pokemon->save();
-
-        return redirect()->route('lista.show')->with('success', 'Pokemon updated successfully');
-    }
-
-    // ELEGIR COLOR FAVORITO
-
-    public function updateColor(Request $request)
-    {
-        $user = Auth::user();
-        $user->color_preference = $request->input('color');
-        $user->save();
-
-        $response = [
-            'success' => true,
-            'message' => 'Color actualizado exitosamente.',
-            'elementId' => 'colorPrefElem', // Agrega el ID del elemento aquí
-            'color' => $request->input('color'),
-        ];
-
-        return response()->json($response);
-    }
-
-
     // CREAR DATOS DEL POKEMON
     public function newPokemon()
     {
@@ -152,5 +78,80 @@ class ListaController extends Controller
         }
 
         return redirect()->route('lista.show')->with('success', 'Pokemon created successfully');
+    }
+
+
+    // EDITAR DATOS DEL POKEMON
+    public function editPokemon($id)
+    {
+        $pokemon = Pokemons::findOrFail($id);
+
+        $types = [
+            'Bug', 'Dark', 'Dragon', 'Electric', 'Fairy',
+            'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass',
+            'Ground', 'Ice', 'Normal', 'Poison', 'Psychic',
+            'Rock', 'Steel', 'Water'
+        ];
+
+        $subtypes = $types;
+        $regions = [
+            'Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Teselia',
+            'Kalos', 'Alola', 'Galar'
+        ];
+
+        return view('editar', compact('pokemon', 'types', 'subtypes', 'regions'));
+    }
+
+
+    public function updatePokemon($id, Request $request)
+    {
+        $pokemon = Pokemons::findOrFail($id);
+
+        $pokemon->name = $request->input('name');
+        $pokemon->type = $request->input('type');
+        $pokemon->subtype = $request->input('subtype');
+        $pokemon->region = $request->input('region');
+
+
+        $pokemon->save();
+
+        return redirect()->route('lista.show')->with('success', 'Pokemon updated successfully');
+    }
+
+    // ELIMINAR EL POKEMON SELECCIONADO
+    public function deletePokemon($id)
+    {
+        $pokemon = Pokemons::findOrFail($id);
+
+        // Primero eliminamos las imágenes 
+        $imgs = Img::where('pokemon_id', $id)->get();
+
+        foreach ($imgs as $img) {
+            $img->forceDelete();
+        }
+
+        // Sin imágenes, eliminamos al pokemon
+        $pokemon->forceDelete();
+
+        return back()->with('success', 'Pokemon deleted successfully');
+    }
+
+
+    // ELEGIR COLOR FAVORITO
+    // Registra el color perfectamente, pero no es una cookie
+    public function updateColor(Request $request)
+    {
+        $user = Auth::user();
+        $user->color_preference = $request->input('color');
+        $user->save();
+
+        $response = [
+            'success' => true,
+            'message' => 'Color actualizado exitosamente.',
+            'elementId' => 'colorPrefElem', // Agrega el ID del elemento aquí
+            'color' => $request->input('color'),
+        ];
+
+        return response()->json($response);
     }
 }
