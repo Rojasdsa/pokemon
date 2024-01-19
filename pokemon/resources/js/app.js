@@ -3,42 +3,6 @@
 import * as bootstrap from 'bootstrap';
 
 
-// VALIDACIONES EN JS
-
-/* Login */
-console.log('HASTA AQUÍ TODO BIEN');
-
-document.addEventListener('DOMContentLoaded', function () {
-    var loginForm = document.getElementById('login-form');
-
-    loginForm.addEventListener('submit', function (event) {
-        // Lógica de validación
-        var emailInput = document.getElementById('email');
-        var passwordInput = document.getElementById('password');
-
-        if (!validarEmail(emailInput.value)) {
-            alert('Por favor, ingresa una dirección de correo electrónico válida.');
-            event.preventDefault();
-            return;
-        }
-
-        if (passwordInput.value.length < 6) {
-            alert('La contraseña debe tener al menos 6 caracteres.');
-            event.preventDefault();
-            return;
-        }
-
-        // Si llegamos a este punto, el formulario se envía correctamente
-    });
-
-    function validarEmail(email) {
-        // Lógica simple de validación de correo electrónico
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-});
-
-
 // ACTUALIZAR AÑO AUTOMÁTICAMENTE
 // Obtiene el elemento span por su id
 document.addEventListener('DOMContentLoaded', function () {
@@ -49,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
         currentYearElement.textContent = "®" + currentYear + " Proyecto Pokémon (Recuperación Cliente, Servidor, Diseño)";
     }
 });
-
-
 
 // COLOR FAV DEL USER
 document.addEventListener('DOMContentLoaded', function () {

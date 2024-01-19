@@ -7,21 +7,16 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>{{ config('app.name', 'Diario del Programador') }}</title>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-
-{{-- css/js de bootstrap --}}
-@vite([
-    'resources/js/app.js', 
-    'resources/css/app.scss', 
-    'resources/css/app.css',
-    'resources/css/custom.scss',
-    ])</head>
+    
+    {{-- css/js de bootstrap --}}
+    @vite(['resources/js/app.js','resources/js/validation.js', 'resources/css/app.scss', 'resources/css/app.css', 'resources/css/custom.scss'])
+</head>
 
 <body>
     <div id="app">
@@ -51,30 +46,30 @@
                             @endif
                         @else
                             {{-- @if (Auth::user()->email_verified_at) --}}
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ Auth::user()->name }}
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                        </li>
-                                    </ul>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                            {{-- @endif --}}
-                    </div>
-                @endguest
-                </ul>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                    </li>
+                                </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                {{-- @endif --}}
+                            </div>
+                        @endguest
+                    </ul>
+                </div>
             </div>
-    </div>
-    </nav>
+        </nav>
 
-    <main class="pt-4">
-        @yield('content')
-    </main>
+        <main class="pt-4">
+            @yield('content')
+        </main>
     </div>
 
 
