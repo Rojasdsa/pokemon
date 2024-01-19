@@ -1,12 +1,15 @@
 @extends('layouts.general')
 
+    {{-- Rutas css/js --}}
+    @vite(['resources/js/validation.js'])
+
 @section('crear')
     <div class="container py-3 editar-main">
         <div class="text-center">
             <h2 class="mb-3"><span class="badge rounded-pill text-bg-warning px-4">Create Pokémon</span></h2>
         </div>
 
-        <form method="POST" action="{{ route('lista.create') }}" enctype="multipart/form-data">
+        <form id="create-pokemon-form" method="POST" action="{{ route('lista.create') }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
 
@@ -17,7 +20,7 @@
 
             <div class="mb-3">
                 <h3 class="fw-bold"><label for="type" class="form-label">Type</label></h3>
-                <select class="form-select" name="type">
+                <select id="type" class="form-select" name="type">
                     @foreach ($types as $type)
                         <option value="{{ $type }}">
                             {{ $type }}</option>
@@ -27,7 +30,7 @@
 
             <div class="mb-3">
                 <h3 class="fw-bold"><label for="subtype" class="form-label">Subtype</label></h3>
-                <select class="form-select" name="subtype">
+                <select id="subtype" class="form-select" name="subtype">
                     @foreach ($subtypes as $subtype)
                         <option value="{{ $subtype }}">
                             {{ $subtype }}</option>
@@ -40,7 +43,7 @@
 
             <div class="mb-3">
                 <h3 class="fw-bold"><label for="region" class="form-label">Region</label></h3>
-                <select class="form-select" name="region">
+                <select id="region" class="form-select" name="region">
                     @foreach ($regions as $region)
                         <option value="{{ $region }}">
                             {{ $region }}</option>
@@ -63,7 +66,7 @@
               </div>
             </div>
 
-            <div class="text-center">
+            <div class="text-center pb-5">
                 <button type="submit" class="btn btn-warning fw-medium border">Save changes</button>
             </div>
         </form>
