@@ -125,7 +125,7 @@
         
         <div class="container text-center mb-5">
             {{-- Botón para cambiar el color del navbar (COOKIES) --}}
-            <a href="" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="">
+            <a href="" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#colorModal">
                 <i class="fa-solid fa-gear"></i>
             </a>
 
@@ -140,7 +140,7 @@
             </a>
         </div>
         {{-- Modal para cambiar el color del navbar (COOKIES) --}}
-        <div class="modal fade" id="" tabindex="-1" aria-labelledby="colorModalLabel" aria-hidden="true">
+        <div class="modal fade" id="colorModal" tabindex="-1" aria-labelledby="colorModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
