@@ -68,7 +68,7 @@
         <p class="pe-1">
             <span id="currentYear"></span>
         </p>
-        <p class="ps-1">
+        <p class="ps-1 fw-medium">
             Fernando A. Rojas del Marco, 2º DAW
         </p>
     </div>
