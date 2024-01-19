@@ -65,3 +65,46 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+/* Crear y editar */
+
+document.addEventListener('DOMContentLoaded', function () {
+    let form = document.getElementById('create-pokemon-form');
+    
+ 
+    let nameInput = document.getElementById('name');
+    let typeSelect = document.getElementById('type');
+    let subtypeSelect = document.getElementById('subtype');
+
+    if (!nameInput || !typeSelect || !subtypeSelect) {
+        console.error('Uno o más elementos del formulario no se encontraron en el DOM.');
+        return;
+    }
+
+    form.addEventListener('submit', function (event) {
+        validarFormulario(event, [
+            { inputId: 'name', validator: validarName, errorMessage: 'El nombre solo puede contener letras. Máximo 20 caracteres.' },
+            { inputId: 'type', validator: (value) => value != subtypeSelect.value, errorMessage: 'Type y Subtype no pueden ser iguales.' },
+        ]);
+    });
+
+    function validarName(name) {
+        let nameRegex = /^[a-zA-Z]{3,20}$/;
+        return nameRegex.test(name);
+    }
+
+    function validarFormulario(event, validations) {
+        for (let validation of validations) {
+            let input = document.getElementById(validation.inputId);
+            if (!input || !validation.validator(input.value)) {
+                showError(validation.errorMessage);
+                event.preventDefault();
+                return;
+            }
+        }
+    }
+
+    function showError(message) {
+        alert(message);
+    }
+});

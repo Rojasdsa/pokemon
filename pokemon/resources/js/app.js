@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ELEGIR COLOR FAVORITO (user->color_preference) //
+
 document.addEventListener('DOMContentLoaded', function () {
     // Asigna el color del usuario a los elementos con la clase correspondiente
     function applyUserColor(color, className) {
