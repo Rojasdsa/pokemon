@@ -34,7 +34,7 @@ return new class extends Migration
                 'Rock',
                 'Steel',
                 'Water',
-            ]);
+            ])->default('Bug');
             $table->enum('subtype', [
                 'Bug',
                 'Dark',
@@ -54,7 +54,7 @@ return new class extends Migration
                 'Rock',
                 'Steel',
                 'Water',
-            ])->nullable();
+            ])->nullable()->default('Bug');
             $table->enum('region', [
                 'Alola',
                 'Galar',

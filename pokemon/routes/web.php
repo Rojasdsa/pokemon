@@ -18,8 +18,8 @@ use App\Http\Controllers\CookieController;
 
 // Ruta inicial
 Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
+    return view('welcome');
+})->name('welcome');
 
 // Rutas auth
 Route::get('/home', function () {
