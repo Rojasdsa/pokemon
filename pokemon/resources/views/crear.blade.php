@@ -54,7 +54,7 @@
               <div class="container d-flex">
 
                 <div class="container custom-file col-3 m-0">
-                    <input type="file" class="custom-file-input" name="img[]" id="img" multiple>
+                    <input type="file" class="custom-file-input" name="img[]" id="img" multiple required>
                     <label class="custom-file-label" for="img">Choose files</label>
                 </div>
 
