@@ -7,10 +7,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card custom-card">
                     <div class="card-header">{{ __('Register') }}</div>
 
-                    <div class="card-body">
+                    <div class=" ms-3 card-body">
                         <form id="register-form" method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -87,7 +87,7 @@
                             </div>
 
                             {{-- PASSWORD CONFIRM --}}
-                            <div class="form-group row mb-3">
+                            <div class="form-group row mb-3 d-flex align-items-center">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -100,7 +100,7 @@
                             {{-- Botón para registrarse --}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-warning">
                                         {{ __('Register') }}
                                     </button>
                                 </div>

@@ -15,7 +15,7 @@
 
             <div class="mb-3">
                 <h3 class="fw-bold"><label for="name" class="form-label">Name</label></h3>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $pokemon->name }}"
+                <input type="text" class="form-control ps-2" id="name" name="name" value="{{ $pokemon->name }}"
                     required>
             </div>
 

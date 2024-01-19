@@ -14,7 +14,7 @@
             @csrf
 
             <div class="mb-3">
-                <h3 class="fw-bold"><label for="name" class="form-label">Name</label></h3>
+                <h3 class="fw-bold ps-2"><label for="name" class="form-label">Name</label></h3>
                 <input type="text" class="form-control" id="name" name="name" value="" required>
             </div>
 
@@ -60,9 +60,6 @@
                     <input type="file" class="custom-file-input" name="img[]" id="img" multiple required>
                     <label class="custom-file-label" for="img">Choose files</label>
                 </div>
-
-                <div class="col-9 d-flex align-items-center">Aqui se verán las imágenes subidas</div>
-
               </div>
             </div>
 

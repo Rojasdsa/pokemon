@@ -1,4 +1,3 @@
-
 /* BODY */
 body {
     margin: 0;
@@ -8,28 +7,30 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 /* NAVBAR */
 
-.icon-navbar{
+.icon-navbar {
     width: 30px;
 }
 
-.banner-navbar{
-    width:100px;
+.banner-navbar {
+    width: 100px;
 }
 
 .navbar-toggler:focus {
-    box-shadow:none;
+    box-shadow: none;
 }
 
 /* GENERAL */
-.bg-general-img{
+.bg-general-img {
     background-image: url('/public/assets/local-img/bg-pokeball.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
 }
+
 /* FOOTER */
 
 footer {
@@ -38,6 +39,7 @@ footer {
     left: 0;
     width: 100%;
 }
+
 footer div {
     display: flex;
     justify-content: center;
@@ -63,33 +65,42 @@ footer div p {
 }
 
 /* Para todos los label y select */
-label{
-    background-color: #5a3115c2; /* Color de fondo, puedes ajustarlo según tus preferencias */
-    color: rgb(245, 245, 245);
-    padding: 5px; /* Añade espacio alrededor del texto para que el fondo sea visible */
-    border-radius: 10px; /* Añade esquinas redondeadas para suavizar la apariencia */ 
+label {
+    /* Color de fondo, puedes ajustarlo según tus preferencias */
+    padding: 5px;
+    /* Añade espacio alrededor del texto para que el fondo sea visible */
+    border-radius: 10px;
+    /* Añade esquinas redondeadas para suavizar la apariencia */
 }
 
 /* Estilo personalizado para select e input */
-.form-select, .form-control {
-    color: #ffffff; /* Color del texto dentro del select */
-    background-color: #5a3115c2; /* Color de fondo del select */
-    border: 1px solid #ced4da; /* Estilo del borde del select */
-    border-radius: 5px; /* Esquinas redondeadas para suavizar la apariencia */
-    padding: 5px; /* Añade espacio interno alrededor del contenido del select */
+.form-control {
+    color: #000000;
+    /* Color del texto dentro del select */
+    /* Color de fondo del select */
+    border: 1px solid #ced4da;
+    /* Estilo del borde del select */
+    border-radius: 5px;
+    /* Esquinas redondeadas para suavizar la apariencia */
+    padding: 5px;
+    /* Añade espacio interno alrededor del contenido del select */
 }
 
 
 /* Estilo personalizado para las opciones dentro del select */
 .custom-select option {
-    background-color: #007bff; /* Color de fondo de las opciones del select */
-    color: #ffffff; /* Color del texto de las opciones del select */
+    background-color: #007bff;
+    /* Color de fondo de las opciones del select */
+    color: #ffffff;
+    /* Color del texto de las opciones del select */
 }
 
 /* Estilo personalizado para el borde del select cuando está enfocado */
 .custom-select:focus {
-    border-color: #007bff; /* Color del borde cuando el select está enfocado */
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra cuando el select está enfocado */
+    border-color: #ffc107;
+    /* Color del borde cuando el select está enfocado */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    /* Sombra cuando el select está enfocado */
 }
 
 /* Estilos para el contenedor del botón de carga de archivos personalizado */
@@ -113,37 +124,66 @@ label{
 .custom-file-label {
     position: relative;
     display: inline-block;
-    background-color: #5a3115c2; /* Color de fondo del botón */
-    color: #fff; /* Color del texto del botón */
-    border: 1px solid rgb(245, 245, 245);; /* Borde del botón */
-    padding: 6px 12px; /* Espaciado interno del botón */
-    border-radius: 4px; /* Radio de borde del botón */
+    background-color: #5a3115c2;
+    /* Color de fondo del botón */
+    color: #fff;
+    /* Color del texto del botón */
+    border: 1px solid rgb(245, 245, 245);
+    ;
+    /* Borde del botón */
+    padding: 6px 12px;
+    /* Espaciado interno del botón */
+    border-radius: 4px;
+    /* Radio de borde del botón */
     cursor: pointer;
 }
 
 /* Estilos adicionales cuando se pasa el ratón sobre el botón */
 .custom-file-label:hover {
-    background-color: #5a3115c2; /* Cambia el color de fondo al pasar el ratón */
+    background-color: #5a3115c2;
+    /* Cambia el color de fondo al pasar el ratón */
 }
 
-.table{
+.table {
     border-color: #000000;
     font-weight: bold;
 }
 
 /* Fondo de la tabla con opacity sin quitar opacity a la letra */
-.table > :not(caption) > * > * {
-    background-color: rgba(255, 255, 255, 0.7); /* Ajusta el último valor según la opacidad deseada */   
+.table> :not(caption)>*>* {
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Ajusta el último valor según la opacidad deseada */
 }
 
 /* IMÁGENES */
 
-#img-style-size{
+#img-style-size {
     width: 42px;
     height: 38px;
 }
 
-.img-modal-size{
+.img-modal-size {
     width: 200px;
     height: 200px;
+}
+
+/* Modal login/register */
+.custom-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Ajusta el último valor según la opacidad deseada */
+}
+
+/* contraseña olvidada */
+
+.hover-link:hover {
+    text-decoration: none;
+    background-color: #ffc107;
+    justify-content: center;
+    border-radius: 5px;
+
+}
+
+#remember{
+    background-color: #ffc107;
+    border-color: black;
 }

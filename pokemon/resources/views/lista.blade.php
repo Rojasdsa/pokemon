@@ -194,12 +194,14 @@
                             id="colorPreferenceForm">
                             @csrf
                             @method('POST')
-                            <p class="m-0 pb-2">Which one do you prefer?
-                            <div class="col-4 form-group">
-                                <label for="color" class="hidden">Color:</label>
+                            <p class="m-0">Which one do you prefer?
+                            <div class="col-12 form-group">
+                                <label for="color" class="hidden bg-white text-dark"></label>
+                               <div class="col-12">
                                 <input type="color" name="color" id="color" class="form-control"
-                                    value="{{ Auth::user()->color_preference }}" required>
-                                <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+                                value="{{ Auth::user()->color_preference }}" required>
+                               </div>
+                                <button type="submit" class="btn btn-warning mt-3">Guardar</button>
                             </div>
                             </p>
                         </form>

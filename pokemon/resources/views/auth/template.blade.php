@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     {{-- css/js de bootstrap --}}
-    @vite(['resources/js/app.js', 'resources/css/app.scss', 'resources/css/app.css', 'resources/css/custom.scss'])
+    @vite(['resources/js/app.js', 'resources/css/custom.scss', 'resources/css/app.scss', 'resources/css/app.css'])
     {{-- Año automático, Color favorito // Validaciones // CSS principal // - // Bootstrap --}}
 
     {{-- Iconos --}}
@@ -25,11 +25,12 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="app" class="bg-general-img lista-main">
+        <nav class="navbar navbar-expand-md navbar-light bg-warning shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Fortify') }}
+                    <img class="icon-navbar" src="{{ asset("/assets/local-img/icon-pokeball.png") }}" alt="pokeball-icon">
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -37,9 +38,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav fw-bold">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
