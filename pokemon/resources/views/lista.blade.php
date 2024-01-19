@@ -11,8 +11,8 @@
             <thead>
                 <tr>
                     <th scope="col">
-                        <div class="d-flex justify-content-evenly">
-                            <span>Name</span>
+                        <div class="d-flex justify-content-center">
+                            <span class="pe-1">Name</span>
                             <a
                                 href="{{ route('lista.show', ['orderField' => 'name', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
                                 @if ($order == 'asc')
@@ -24,8 +24,8 @@
                         </div>
                     </th>
                     <th scope="col">
-                        <div class="d-flex justify-content-evenly">
-                            <span>Type</span>
+                        <div class="d-flex justify-content-center">
+                            <span class="pe-1">Type</span>
                             <a
                                 href="{{ route('lista.show', ['orderField' => 'type', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
                                 @if ($order == 'asc')
@@ -37,8 +37,8 @@
                         </div>
                     </th>
                     <th scope="col">
-                        <div class="d-flex justify-content-evenly">
-                            <span>Subtype</span>
+                        <div class="d-flex justify-content-center">
+                            <span class="pe-1">Subtype</span>
                             <a
                                 href="{{ route('lista.show', ['orderField' => 'subtype', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
                                 @if ($order == 'asc')
@@ -50,8 +50,8 @@
                         </div>
                     </th>
                     <th scope="col">
-                        <div class="d-flex justify-content-evenly">
-                            <span>Region</span>
+                        <div class="d-flex justify-content-center">
+                            <span class="pe-1">Region</span>
                             <a
                                 href="{{ route('lista.show', ['orderField' => 'region', 'order' => $order == 'asc' ? 'desc' : 'asc']) }}">
                                 @if ($order == 'asc')
