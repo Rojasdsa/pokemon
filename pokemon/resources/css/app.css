@@ -15,12 +15,35 @@ body {
 }
 
 /* NAVBAR */
+.icon-navbar {
+  width: 30px;
+}
+
+.banner-navbar {
+  width: 100px;
+}
+
 .navbar-toggler:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
+/* GENERAL */
+.bg-general-img {
+  background-image: url("/public/assets/local-img/bg-pokeball.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* FOOTER */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 footer div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,4 +74,89 @@ footer div p {
 /* Resalta la opción escondida para subtype=null */
 .hover-null.hovered {
   color: black;
+}
+
+/* Para todos los label y select */
+label {
+  background-color: rgba(90, 49, 21, 0.7607843137); /* Color de fondo, puedes ajustarlo según tus preferencias */
+  color: rgb(245, 245, 245);
+  padding: 5px; /* Añade espacio alrededor del texto para que el fondo sea visible */
+  border-radius: 10px; /* Añade esquinas redondeadas para suavizar la apariencia */
+}
+
+/* Estilo personalizado para select e input */
+.form-select, .form-control {
+  color: #ffffff; /* Color del texto dentro del select */
+  background-color: rgba(90, 49, 21, 0.7607843137); /* Color de fondo del select */
+  border: 1px solid #ced4da; /* Estilo del borde del select */
+  border-radius: 5px; /* Esquinas redondeadas para suavizar la apariencia */
+  padding: 5px; /* Añade espacio interno alrededor del contenido del select */
+}
+
+/* Estilo personalizado para las opciones dentro del select */
+.custom-select option {
+  background-color: #007bff; /* Color de fondo de las opciones del select */
+  color: #ffffff; /* Color del texto de las opciones del select */
+}
+
+/* Estilo personalizado para el borde del select cuando está enfocado */
+.custom-select:focus {
+  border-color: #007bff; /* Color del borde cuando el select está enfocado */
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra cuando el select está enfocado */
+}
+
+/* Estilos para el contenedor del botón de carga de archivos personalizado */
+.custom-file {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilos para el input oculto */
+.custom-file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+/* Estilos para la etiqueta del botón de carga personalizado */
+.custom-file-label {
+  position: relative;
+  display: inline-block;
+  background-color: rgba(90, 49, 21, 0.7607843137); /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: 1px solid rgb(245, 245, 245); /* Borde del botón */
+  padding: 6px 12px; /* Espaciado interno del botón */
+  border-radius: 4px; /* Radio de borde del botón */
+  cursor: pointer;
+}
+
+/* Estilos adicionales cuando se pasa el ratón sobre el botón */
+.custom-file-label:hover {
+  background-color: rgba(90, 49, 21, 0.7607843137); /* Cambia el color de fondo al pasar el ratón */
+}
+
+.table {
+  border-color: #000000;
+  font-weight: bold;
+}
+
+/* Fondo de la tabla con opacity sin quitar opacity a la letra */
+.table > :not(caption) > * > * {
+  background-color: rgba(255, 255, 255, 0.7); /* Ajusta el último valor según la opacidad deseada */
+}
+
+/* IMÁGENES */
+#img-style-size {
+  width: 42px;
+  height: 38px;
+}
+
+.img-modal-size {
+  width: 200px;
+  height: 200px;
 }

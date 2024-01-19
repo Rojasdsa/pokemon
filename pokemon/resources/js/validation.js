@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let subtypeSelect = document.getElementById('subtype');
 
     if (!nameInput || !typeSelect || !subtypeSelect) {
-        console.error('Uno o más elementos del formulario no se encontraron en el DOM.');
         return;
     }
 

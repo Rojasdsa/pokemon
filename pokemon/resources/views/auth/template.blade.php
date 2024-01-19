@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     {{-- css/js de bootstrap --}}
-    @vite(['resources/js/app.js', 'resources/js/validation.js', 'resources/css/app.scss', 'resources/css/app.css', 'resources/css/custom.scss'])
+    @vite(['resources/js/app.js', 'resources/css/app.scss', 'resources/css/app.css', 'resources/css/custom.scss'])
     {{-- Año automático, Color favorito // Validaciones // CSS principal // - // Bootstrap --}}
 
     {{-- Iconos --}}

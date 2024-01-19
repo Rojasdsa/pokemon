@@ -1,5 +1,8 @@
 @extends('auth.template')
 
+{{-- Rutas css/js --}}
+@vite(['resources/js/validation.js'])
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
