@@ -13,10 +13,9 @@
     {{-- Rutas css/js --}}
     @vite([
         'resources/js/app.js', // Año automático, Color favorito
-        'resources/js/validation.js', // Validaciones
+        'resources/css/custom.scss', // Bootstrap
         'resources/css/app.scss', // CSS principal
         'resources/css/app.css',
-        'resources/css/custom.scss', // Bootstrap
     ])
 
     {{-- Iconos --}}
