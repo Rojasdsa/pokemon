@@ -2,9 +2,8 @@
 
 import * as bootstrap from 'bootstrap';
 
+// ACTUALIZAR AÑO AUTOMÁTICAMENTE //
 
-// ACTUALIZAR AÑO AUTOMÁTICAMENTE
-// Obtiene el elemento span por su id
 document.addEventListener('DOMContentLoaded', function () {
     let currentYearElement = document.getElementById("currentYear");
 
@@ -14,7 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// COLOR FAV DEL USER
+// CAMBIO DE ASPECTO SEGÚN ESTACIÓN //
+
+
+// ELEGIR COLOR FAVORITO (user->color_preference) //
 document.addEventListener('DOMContentLoaded', function () {
     // Asigna el color del usuario a los elementos con la clase correspondiente
     function applyUserColor(color, className) {
@@ -27,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Tu lógica para mostrar mensajes de éxito o error
     function showMessage(message, success) {
         if (success) {
-            alert('Éxito: ' + message);
+            console.log('Éxito: ' + message);
         } else {
-            alert('Error: ' + message);
+            console.log('Error: ' + message);
         }
     }
 
