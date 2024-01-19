@@ -7,7 +7,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form id="register-form" method="POST" action="{{ route('register') }}">
                             @csrf
 
                             {{-- NAME --}}
@@ -67,7 +67,7 @@
                             {{-- PASSWORD --}}
                             <div class="form-group row mb-3">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right d-flex align-items-center justify-content-start">{{ __('New Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
