@@ -7,15 +7,21 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
-    <title>{{ config('app.name', 'Diario del Programador') }}</title>
-    
+
+    <title>Auth - Pokémon</title>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    
+
     {{-- css/js de bootstrap --}}
-    @vite(['resources/js/app.js','resources/js/validation.js', 'resources/css/app.scss', 'resources/css/app.css', 'resources/css/custom.scss'])
+    @vite(['resources/js/app.js', 'resources/js/validation.js', 'resources/css/app.scss', 'resources/css/app.css', 'resources/css/custom.scss'])
+    {{-- Año automático, Color favorito // Validaciones // CSS principal // - // Bootstrap --}}
+
+    {{-- Iconos --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -72,7 +78,16 @@
         </main>
     </div>
 
-
+    {{-- FOOTER --}}
+    <footer>
+        <div class="text-center py-3 border-1 bg-warning">
+            <p class="pe-1">
+                <span id="currentYear"></span>
+            </p>
+            <p class="ps-1 fw-medium">
+                Fernando A. Rojas del Marco, 2º DAW
+            </p>
+        </div>
+      </footer>
 </body>
-
 </html>
