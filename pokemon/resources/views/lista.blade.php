@@ -75,24 +75,65 @@
 
                         <td class="align-middle">
                             <div class="d-flex justify-content-center">
+
+                                {{-- Botón para ver imágenes de un Pokémon --}}
+                                <a href="#imgModal{{ $pokemon->id }}" class="btn btn-success mx-1" data-bs-toggle="modal"
+                                    data-bs-target="#imgModal{{ $pokemon->id }}">
+                                    <i class="fa-regular fa-image"></i>
+                                </a>
+
                                 {{-- Botón para editar un Pokémon --}}
                                 <a href="{{ route('lista.edit', $pokemon->id) }}" class="btn btn-primary mx-1">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
 
                                 {{-- Botón para eliminar un Pokémon --}}
-                                <a href="#exampleModal{{ $pokemon->id }}" class="btn btn-danger mx-1"
-                                    data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pokemon->id }}">
+                                <a href="#deleteModal{{ $pokemon->id }}" id="img-style-size" class="btn btn-danger mx-1"
+                                    data-bs-toggle="modal" data-bs-target="#deleteModal{{ $pokemon->id }}">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
+
                             </div>
-                            {{-- Modal para eliminar un pokemon --}}
-                            <div class="modal fade" id="exampleModal{{ $pokemon->id }}" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                            {{-- Modal para ver imágenes de un pokemon --}}
+                            <div class="modal fade" id="imgModal{{ $pokemon->id }}" tabindex="-1"
+                                aria-labelledby="imgModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Delete Pokémon</h5>
+                                            <h5 class="modal-title" id="imgModalLabel">{{ $pokemon->name }} images</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body d-grid justify-content-center align-items-center">
+
+                                            @foreach ($images as $image)
+                                                @if ($pokemon->id == $image->pokemon_id)
+                                                    <img class="card-img rounded-0 img-fluid img-modal-size"
+                                                        src="/assets/img/{{ $pokemon->id }}/{{ $pokemon->id }}_{{ $i }}.png"
+                                                        alt="{{ $pokemon->name }} Image {{ $image->index }}">
+                                                    
+                                                    @php
+                                                        $i++;
+                                                    @endphp
+                                                @endif
+                                            @endforeach
+
+
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Modal para eliminar un pokemon --}}
+                            <div class="modal fade" id="deleteModal{{ $pokemon->id }}" tabindex="-1"
+                                aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel">Delete Pokémon</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -114,6 +155,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </td>
                     </tr>
                 @endforeach
@@ -121,8 +163,8 @@
         </table>
 
         {{-- <img class="card-img rounded-0 img-fluid" src="/assets/img/{{ $pokemon->id }}/{{ $pokemon->id }}_0.png"> --}}
-        
-        
+
+
         <div class="container text-center mb-5">
             {{-- Botón para cambiar el color del navbar (COOKIES) --}}
             <a href="" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#colorModal">

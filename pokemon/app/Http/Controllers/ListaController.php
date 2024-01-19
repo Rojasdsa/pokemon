@@ -33,7 +33,11 @@ class ListaController extends Controller
             $pokemons = Pokemons::orderBy($orderField, $order)->get();
         }
 
-        return view('lista', @compact('order', 'pokemons'));
+        //Recogemos todas las img asociadas al pokemon
+        $images = Img::all();
+        $i = 0;
+
+        return view('lista', @compact('order', 'pokemons', 'images', 'i'));
     }
 
     // filtro para requisitos concretos
