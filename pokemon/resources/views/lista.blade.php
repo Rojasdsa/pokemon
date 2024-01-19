@@ -108,13 +108,14 @@
                                         <div class="modal-body d-grid justify-content-center align-items-center">
 
                                             @foreach ($images as $image)
+                
                                                 @if ($pokemon->id == $image->pokemon_id)
                                                     <img class="card-img rounded-0 img-fluid img-modal-size"
                                                         src="/assets/img/{{ $pokemon->id }}/{{ $pokemon->id }}_{{ $i }}.png"
-                                                        alt="{{ $pokemon->name }} Image {{ $image->index }}">
+                                                        alt="{{ $pokemon->name }}">
                                                     
                                                     @php
-                                                        $i++;
+                                                       $i++;
                                                     @endphp
                                                 @endif
                                             @endforeach
@@ -161,9 +162,6 @@
                 @endforeach
             </tbody>
         </table>
-
-        {{-- <img class="card-img rounded-0 img-fluid" src="/assets/img/{{ $pokemon->id }}/{{ $pokemon->id }}_0.png"> --}}
-
 
         <div class="container text-center mb-5">
             {{-- Botón para cambiar el color del navbar (COOKIES) --}}
